@@ -1,6 +1,6 @@
-(ns day1.core-test
+(ns p2.core-test
   (:require [clojure.test :refer :all]
-            [day1.core :refer :all]))
+            [p2.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

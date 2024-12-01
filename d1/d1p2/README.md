@@ -1,4 +1,4 @@
-# day1
+# p2
 
 FIXME: description
 
@@ -10,7 +10,7 @@ Download from http://example.com/FIXME.
 
 FIXME: explanation
 
-    $ java -jar day1-0.1.0-standalone.jar [args]
+    $ java -jar p2-0.1.0-standalone.jar [args]
 
 ## Options
 
