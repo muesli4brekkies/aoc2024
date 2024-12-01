@@ -4,7 +4,7 @@
 (require '[clojure.string :as str])
 (require '[clojure.core.reducers :as reducers])
 
-(def input (slurp "../input.txt.bak"))
+(def input (slurp "../input.txt"))
 
 
 (defn diff [left right])
