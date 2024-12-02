@@ -5,7 +5,7 @@
 
 (defn unzip
   [[lacc racc] line]
-  (let [[l r] (map read-string (s/split line #"\s+"))]
+  (let [[l r] (s/split line #"\s+")]
     [(conj lacc l) (conj racc r)]))
 
 (defn split-lr
@@ -18,8 +18,9 @@
    l
    (sort)
    (interleave (sort r))
+   (map read-string)
    (partition 2)
-   (reduce (fn [acc [l r]] (+ acc (abs (- l r)))) 0)))
+   (reduce #(+ %1 (abs (- (first %2) (last %2)))) 0)))
 
 (defn -main
   []
