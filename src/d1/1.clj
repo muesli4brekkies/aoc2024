@@ -1,4 +1,4 @@
-(ns d1p1.core
+(ns d1.1
   (:gen-class))
 
 (require '[clojure.string :as s])
@@ -22,11 +22,4 @@
    (partition 2)
    (reduce #(+ %1 (abs (- (first %2) (last %2)))) 0)))
 
-(defn -main
-  []
-  (->
-   "../input.txt"
-   (slurp)
-   (split-lr)
-   (crunch)
-   (println)))
+(defn solve [path] (-> path slurp split-lr crunch))

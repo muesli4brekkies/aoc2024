@@ -1,4 +1,4 @@
-(ns d1p2.core
+(ns d1.2
   (:gen-class))
 
 (require '[clojure.string :as s])
@@ -17,11 +17,4 @@
   (let [frq (frequencies r)]
     (reduce #(+ %1 (* %2 (or (get frq %2) 0))) 0 l)))
 
-(defn -main
-  []
-  (->
-   "../input.txt"
-   (slurp)
-   (split-lr)
-   (crunch)
-   (println)))
+(defn solve [path] (-> path slurp split-lr crunch))

@@ -1,7 +1,7 @@
-(defproject aocd3p2 "0.1"
-  :description "Advent of Code Day 3 Part 2"
+(defproject aocd1p1 "0.1"
+  :description "Advent of Code Day - in Clojure"
   :dependencies [[org.clojure/clojure "1.11.1"]]
-  :main ^:skip-aot d3p2.core
+  :main ^:skip-aot core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
                        :jvm-opts ["-Dclojure.compiler.direct-linking=true"]}})

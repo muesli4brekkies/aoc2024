@@ -1,5 +1,4 @@
-(ns d2p2.core
-  (:gen-class))
+(ns d2.2)
 (require '[clojure.string :as s])
 
 (defn extract [blob] (->> blob slurp s/split-lines (map #(s/split %1 #"\s+")) (map #(map read-string %1))))
@@ -13,4 +12,4 @@
 
 (defn check [lines] (filter #(or (pass? %1) (try-choose-n %1)) lines))
 
-(defn -main [path] (-> path extract check count println))
+(defn solve [path] (-> path extract check count))
