@@ -22,5 +22,4 @@
   [& args]
   (if (> 2 (count args))
     (println "need args yo - day and part eg lein run 1 2")
-    (println ((get (nth fns (grab first args)) (grab second args))
-                (get inputs (grab first args))))))
+    (println ((-> fns (get (grab first args)) (get (grab second args))) (get inputs (grab first args))))))
