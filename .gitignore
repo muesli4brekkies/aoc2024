@@ -1,6 +1,7 @@
 .hgignore
 .calva/
 .clj-kondo
+.joyride
 .lsp
 target/
 .nrepl-port
