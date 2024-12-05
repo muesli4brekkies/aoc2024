@@ -1,7 +1,4 @@
-(ns d1.2
-  (:gen-class))
-
-(require '[clojure.string :as s])
+(ns d1.2 (:require [clojure.string :as s]))
 
 (defn unzip
   [[lacc racc] line]

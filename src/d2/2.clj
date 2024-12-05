@@ -1,5 +1,4 @@
-(ns d2.2)
-(require '[clojure.string :as s])
+(ns d2.2 (:require [clojure.string :as s]))
 
 (defn extract [in] (->> in (map #(s/split %1 #"\s+")) (map #(map read-string %1))))
 

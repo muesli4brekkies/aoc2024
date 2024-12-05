@@ -1,5 +1,4 @@
-(ns d2.1)
-(require '[clojure.string :as s])
+(ns d2.1 (:require [clojure.string :as s]))
 
 (defn diffs
   [line res]

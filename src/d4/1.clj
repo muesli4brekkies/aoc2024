@@ -1,6 +1,4 @@
-(ns d4.1
-  (:require
-   [clojure.string :as s]))
+(ns d4.1 (:require [clojure.string :as s]))
 
 (defn match [s] (let [x "XMAS"] (or (= s x) (= s (s/reverse x)))))
 

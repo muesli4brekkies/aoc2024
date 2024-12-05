@@ -1,25 +1,13 @@
-(ns d1.1
-  (:gen-class))
+(ns d1.1 (:require [clojure.string :as s]))
 
-(require '[clojure.string :as s])
+(defn ins-ord [l x] (let [[bef aft] (split-with #(> x %) l)] (-> bef vec (conj x) (into aft))))
 
-(defn unzip
-  [[lacc racc] line]
-  (let [[l r] (s/split line #"\s+")]
-    [(conj lacc l) (conj racc r)]))
-
-(defn split-lr
-  [input]
-  (reduce unzip [[] []] (s/split-lines input)))
-
-(defn crunch
-  [[l r]]
+(defn solve [in]
   (->>
-   l
-   sort
-   (interleave (sort r))
+   in
+   (#(s/split % #"\s+|\n"))
    (map read-string)
-   (partition 2)
-   (reduce #(+ %1 (abs (- (first %2) (last %2)))) 0)))
-
-(defn solve [in] (-> in split-lr crunch))
+   (map-indexed vector)
+   (reduce (fn [[l r] [i b]] (if (zero? (mod i 2)) [(ins-ord l b) r] [l (ins-ord r b)])) [[] []])
+   (apply map vector)
+   (reduce (fn [a [x y]] (+ a (abs (- x y)))) 0)))
