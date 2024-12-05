@@ -13,10 +13,9 @@
        (every? #(and (>= 3 (abs %1)) (not (= %1 0))) line)))
 
 (defn solve
-  [path]
+  [in]
   (->>
-   path
-   slurp
+   in
    s/split-lines
    (map #(s/split %1 #"\s+"))
    (map #(map read-string %1))

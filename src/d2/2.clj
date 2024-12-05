@@ -1,7 +1,7 @@
 (ns d2.2)
 (require '[clojure.string :as s])
 
-(defn extract [blob] (->> blob slurp s/split-lines (map #(s/split %1 #"\s+")) (map #(map read-string %1))))
+(defn extract [in] (->> in (map #(s/split %1 #"\s+")) (map #(map read-string %1))))
 
 (defn okranges? [line]
   (every? #(> 4 (abs %1)) (for [i (-> line count (- 1) range)] (- (nth line i) (nth line (inc i))))))
@@ -12,4 +12,4 @@
 
 (defn check [lines] (filter #(or (pass? %1) (try-choose-n %1)) lines))
 
-(defn solve [path] (-> path extract check count))
+(defn solve [in] (-> in s/split-lines extract check count))

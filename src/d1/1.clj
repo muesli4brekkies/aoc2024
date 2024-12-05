@@ -16,10 +16,10 @@
   [[l r]]
   (->>
    l
-   (sort)
+   sort
    (interleave (sort r))
    (map read-string)
    (partition 2)
    (reduce #(+ %1 (abs (- (first %2) (last %2)))) 0)))
 
-(defn solve [path] (-> path slurp split-lr crunch))
+(defn solve [in] (-> in split-lr crunch))

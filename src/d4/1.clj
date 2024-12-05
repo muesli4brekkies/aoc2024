@@ -18,8 +18,8 @@
       (for [k (map #(+ 1 %) (range len))] (for [i (range (- len k))] (get (get lines (+ i k)) i))))
      (map #(apply str %)))))
 
-(defn solve [path]
-  (let [lines (->> path slurp s/split-lines)
+(defn solve [in]
+  (let [lines (s/split-lines in)
         rot (map #(apply str %) (apply map vector lines))
         zig (zigzag lines)
         giz (zigzag (vec (map #(->> % reverse (apply str)) lines)))]

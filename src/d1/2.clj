@@ -17,4 +17,4 @@
   (let [frq (frequencies r)]
     (reduce #(+ %1 (* %2 (or (get frq %2) 0))) 0 l)))
 
-(defn solve [path] (-> path slurp split-lr crunch))
+(defn solve [in] (-> in split-lr crunch))
