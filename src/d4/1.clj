@@ -1,26 +1,16 @@
-(ns d4.1 (:require [clojure.string :as s]))
+(ns d4.1)
 
-(defn match [s] (let [x "XMAS"] (or (= s x) (= s (s/reverse x)))))
-
-(defn count-xmas [string]
-  (loop [s string n 0]
-    (if (-> s count (< 4))
-      n
-      (recur (apply str (drop 1 s)) (+ n (if (->> s (take 4) (apply str) match) 1 0))))))
-
-(defn zigzag [lines]
-  (let [len (count (first lines))]
-    (->>
-     (concat
-      (for [j (range len)] (for [i (range (- len j))] (get (get lines i) (+ i j))))
-      (for [k (map #(+ 1 %) (range len))] (for [i (range (- len k))] (get (get lines (+ i k)) i))))
-     (map #(apply str %)))))
+(defn search [wid in i mul add]
+  (if (every? (fn [[n c]] (= c (get in (+ i (* n add) (* n mul wid))))) [[1 \M] [2 \A] [3 \S]])
+    1 0))
 
 (defn solve [in]
-  (let [lines (s/split-lines in)
-        rot (map #(apply str %) (apply map vector lines))
-        zig (zigzag lines)
-        giz (zigzag (vec (map #(->> % reverse (apply str)) lines)))]
-    (reduce #(+ %1 (count-xmas %2)) 0 (concat lines rot zig giz))))
-             
-
+  (let [[len wid] [(count in) (inc (count (take-while #(not (= % \newline)) in)))]]
+    (reduce
+     (fn [acc i]
+       (+ acc
+          (if (= \X (get in i))
+            (reduce
+             (fn [acc [mul add]] (+ acc (search wid in i mul add))) 0
+             [[1 0] [0 1] [-1 0] [0 -1] [1 1] [-1 -1] [1 -1] [-1 1]])
+            0))) 0 (range len))))

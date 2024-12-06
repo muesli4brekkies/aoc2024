@@ -8,16 +8,16 @@
 
 (defn isvalid?
   [line]
-  (and (every? #((if (< 0 (first line)) < >) 0 %1) line)
-       (every? #(and (>= 3 (abs %1)) (not (= %1 0))) line)))
+  (and (every? #((if (< 0 (first line)) < >) 0 %) line)
+       (every? #(and (>= 3 (abs %)) (not (= % 0))) line)))
 
 (defn solve
   [in]
   (->>
    in
    s/split-lines
-   (map #(s/split %1 #"\s+"))
-   (map #(map read-string %1))
-   (map #(diffs %1 []))
+   (map #(s/split % #"\s+"))
+   (map #(map read-string %))
+   (map #(diffs % []))
    (filter isvalid?)
    count))
