@@ -2,27 +2,22 @@
 
 (defn idx [l s] (reduce #(if (and (nil? %1) (= (nth l %2) s)) %2 %1) nil (-> l count range)))
 
-(defn del [l el] (let [i (idx l el)] (concat (take i l) (drop (inc i) l))))
+(defn del [l el] (let [fore (take-while #(not (= el %)) l)] (into (vec fore) (drop (inc (count fore)) l))))
 
-(defn ins-after [l el x] (let [i (inc (idx l el))] (conj (concat (take i l) [x] (drop i l)))))
+(defn ins-after [l el x] (let [i (inc (idx l el)) [pre post] (split-at i l)] (-> pre vec (into [x]) (into post))))
 
-(defn edit-line [line [x y]]
-  (let [[ix iy] [(idx line x) (idx line y)]]
-    (if (< ix iy)
-      line
-      (-> line (ins-after x y) (del y)))))
+(defn edit-line [line [x y]] (if (apply < [(idx line x) (idx line y)]) line (-> line (ins-after x y) (del y))))
 
 (defn correct [rules line]
-  (let [rules (d5.1/match-rules rules line)
-        edited-line (reduce edit-line line rules)]
-    (if (every? (partial d5.1/pass-rule? edited-line) rules)
+  (let [linerules (d5.1/match-rules rules line) edited-line (reduce edit-line line linerules )]
+    (if (every? (partial d5.1/pass-rule? edited-line) linerules)
       edited-line
-      (recur rules edited-line))))
+      (recur linerules edited-line))))
 
 (defn solve [in]
   (let [[rules challenge] (d5.1/split-input in)]
     (->>
      (filter (comp not #(d5.1/check rules %)) (drop 1 challenge))
-     (map (partial correct rules))
+     (map #(correct rules %))
      (map #(read-string (nth % (-> % count (/ 2)))))
      (apply +))))

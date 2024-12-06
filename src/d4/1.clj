@@ -1,4 +1,4 @@
-(ns d4.1)
+(ns d4.1 (:require [clojure.math :as c]))
 
 (defn search [wid in i mul add]
   (if (every? (fn [[n c]] (= c (get in (+ i (* n add) (* n mul wid))))) [[1 \M] [2 \A] [3 \S]])
