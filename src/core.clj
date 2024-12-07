@@ -6,7 +6,8 @@
    [d4.1] [d4.2]
    [d5.1] [d5.2]
    [d6.1] [d6.2]
-   ))
+   )
+  ( :gen-class))
 
 (def solvers
   [["inputs/1.input" [d1.1/solve d1.2/solve]]
