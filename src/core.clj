@@ -7,8 +7,9 @@
      [d5.1] [d5.2]
      [d6.1] [d6.2]
      [d7.1] [d7.2]
-     [d8.1] [d8.2]
+     [d8.1] [d8.1]
      [d9.1]
+     [d10.1] [d10.2]
      ))
 
 (def solvers
@@ -19,11 +20,11 @@
    ["inputs/5.input" [d5.1/solve d5.2/solve]]
    ["inputs/6.input" [d6.1/solve d6.2/solve]]
    ["inputs/7.input" [d7.1/solve d7.2/solve]]
-   ["inputs/7.input" [d8.1/solve d8.2/solve]]
-   ["inputs/7.input" [d9.1/solve 
-                      ;d8.2/solve
+   ["inputs/8.input" [d8.1/solve ;d8.2/solve
                       ]]
-   ])
+   ["inputs/9.input" [d9.1/solve ;d8.2/solve
+                      ]]
+   ["inputs/10.input" [d10.1/solve d10.2/solve]]])
 
 (defn -main
   [darg parg & path?]
