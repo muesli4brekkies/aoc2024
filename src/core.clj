@@ -26,7 +26,7 @@
    ["inputs/9.input" [d9.1/solve ;d8.2/solve
                       ]]
    ["inputs/10.input" [d10.1/solve d10.2/solve]]
-   ["inputs/10.input" [d11.1/solve]]
+   ["inputs/11.input" [d11.1/solve]]
    ])
 
 (defn -main
