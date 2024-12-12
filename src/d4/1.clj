@@ -14,15 +14,3 @@
              (fn [acc [mul add]] (+ acc (search wid in i mul add))) 0
              (c/selections [-1 0 1] 2))
             0))) 0 (range len))))
-
-(->> 
- [[1 2 3] [4 5 6] [7 8 9]]
-     (apply map vector))
-
-
-(->> 
- [[1 2 3] [4 5 6] [7 8 9]]
- reverse
- (map reverse)
- (apply map vector)
- )
