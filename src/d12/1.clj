@@ -13,21 +13,19 @@
    adj))
 
 (defn walk-plot [grid wid ch i]
-  (if (= ch "x")
-    [0 grid]
     (loop [lgrid  grid
-           seen       []
-           stack      (list i)
-           fences     0
-           area       0]
-      (let [i         (first stack)
-            grid      (assoc lgrid i "x")
+           seen   []
+           stack  (list i)
+           fences 0
+           area   0]
+      (let [i      (first stack)
+            grid   (assoc lgrid i "x")
             [nexts
-             nfences] (split-adj (get-adj i lgrid wid) seen ch)
-            stack     (into (set (next stack)) nexts)]
+             nfen] (split-adj (get-adj i lgrid wid) seen ch)
+            stack  (into (set (next stack)) nexts)]
         (if (empty? stack)
-          [grid (* (+ fences nfences) (inc area))]
-          (recur grid (conj seen i) stack (+ fences nfences) (inc area)))))))
+          [grid (* (+ fences nfen) (inc area))]
+          (recur grid (conj seen i) stack (+ fences nfen) (inc area))))))
 
 (defn solve [in]
   (let [wid (inc (count (take-while #(not (= % \newline)) in)))

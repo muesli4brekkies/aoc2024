@@ -12,7 +12,8 @@
      [d10.1] [d10.2]
      [d11.1]
      [d12.1] [d12.2]
-     [d13.1] [d13.2]))
+     [d13.1] [d13.2]
+     [d14.1] [d14.2]))
      ;
 
 
@@ -30,6 +31,7 @@
    :11 ["inputs/11.input" {:1 d11.1/solve}]
    :12 ["inputs/12.input" {:1 d12.1/solve :2 d12.2/solve}]
    :13 ["inputs/13.input" {:1 d13.1/solve :2 d13.2/solve}]
+   :14 ["inputs/14.input" {:1 d14.1/solve :2 d14.2/solve}]
    ;
    })
 
