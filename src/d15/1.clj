@@ -6,9 +6,8 @@
 (defn look [i dir grid]
   (loop [i i res []]
     (let [c (nth grid i)
-          res (conj res c)] (cond
-                              (or (= c \.) (= c \#)) res
-                              :else (recur (+ i dir) res)))))
+          res (conj res c)]
+      (if (or (= c \.) (= c \#)) res (recur (+ i dir) res)))))
 
 (defn push [line grid i dir]
   (let [fore (take-while (fn [c] (not (= c \.))) line)
@@ -18,13 +17,13 @@
 
 (defn gobot [dirs]
   (fn [grid i cmds]
-    (if (empty? cmds)
-      grid
-      (let [dir (get dirs (first cmds))
+    (if-let [cmd (first cmds)]
+      (let [dir (dirs cmd)
             line (look i dir grid)]
         (if (some (fn [c] (= c \.)) line)
           (recur (push line grid i dir) (+ i dir) (next cmds))
-          (recur grid i (next cmds)))))))
+          (recur grid i (next cmds))))
+      grid)))
 
 (defn calc [in wid]
   (reduce (fn [a i]
@@ -36,6 +35,6 @@
   (let [wid    (count (take-while #(not (= % \newline)) in))
         [grid
          cmds] (map (comp vec #(s/replace % #"\n" "")) (s/split in #"\n\n"))
-        start    (count (take-while #(not (= % \@)) grid))
+        start  (count (take-while #(not (= % \@)) grid))
         dirs   {\> 1 \< -1 \v wid \^ (* -1 wid)}]
     (calc ((gobot dirs) grid start cmds) wid)))

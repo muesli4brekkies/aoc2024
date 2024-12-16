@@ -41,11 +41,11 @@
 
 (defn gobot [dirs]
   (fn [cmds [i grid]]
-    (let [cmd (first cmds)]
+    (if-let [cmd (first cmds)]
       (cond
-        (nil? cmds) grid
         (or (= cmd \<) (= cmd \>)) (recur (next cmds) (push grid (dirs cmd) i))
-        (or (= cmd \v) (= cmd \^)) (recur (next cmds) (pusv grid (dirs cmd) i))))))
+        (or (= cmd \v) (= cmd \^)) (recur (next cmds) (pusv grid (dirs cmd) i)))
+      grid)))
 
 (defn calc [in wid]
   (reduce (fn [a i]
@@ -57,8 +57,7 @@
   (let [wid    (* 2 (count (take-while #(not (= % \newline)) in)))
         [grid
          cmds] (map #(s/replace % #"\n" "") (s/split in #"\n\n"))
-        grid   (vec (reduce (fn [a [r s]] (s/replace a r s))
-                            (apply str grid)
+        grid   (vec (reduce (fn [a [r s]] (s/replace a r s)) grid
                             [[#"\." ".."] [#"O" "[]"] [#"#" "##"] [#"@" "@."]]))
         start  (count (take-while #(not (= % \@)) grid))
         dirs   {\> 1 \< -1 \v wid \^ (* -1 wid)}]

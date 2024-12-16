@@ -15,6 +15,7 @@
      [d13.1] [d13.2]
      [d14.1] [d14.2]
      [d15.1][d15.2]
+     [d16.1] [d16.2] 
      ;
      ))
 
@@ -34,6 +35,7 @@
    :13 {:infile "inputs/13.input" :fn {:1 d13.1/solve :2 d13.2/solve}}
    :14 {:infile "inputs/14.input" :fn {:1 d14.1/solve :2 d14.2/solve}}
    :15 {:infile "inputs/15.input" :fn {:1 d15.1/solve :2 d15.2/solve}}
+   :16 {:infile "inputs/16.input" :fn {:1 d16.1/solve :2 d16.2/solve}}
    ;
    })
 
