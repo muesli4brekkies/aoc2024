@@ -28,22 +28,17 @@
       (if (empty? stack)
         res
         (let [[dir i acc seen] (take 4 stack)
-              adjs (nexts in i dirs dir seen acc)]
+              adjs (nexts in i dirs dir seen acc)
+              stack (into (drop 4 stack) (if (or (< res acc) (< (get scgr i) acc)) [] (reverse adjs)))]
           (cond
             (= \E (get in i))      (recur
-                                    (drop 4 stack)
+                                    stack
                                     scgr
                                     (if (< acc res)
-                                      (do (prn res acc n) acc) res) (inc n))
-            (or
-             (< res acc)
-             (< (get scgr i) acc)) (recur
-                                    (drop 4 stack)
-                                    scgr
-                                    res
+                                      (do (prn res acc n) acc) res)
                                     (inc n))
             :else                  (recur
-                                    (into (drop 4 stack) (reverse adjs))
+                                    stack
                                     (assoc scgr i acc)
                                     res
                                     (inc n))))))))
