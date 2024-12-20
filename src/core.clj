@@ -7,15 +7,19 @@
      [d5.1] [d5.2]
      [d6.1] [d6.2]
      [d7.1] [d7.2]
-     [d8.1]
-     [d9.1]
+     [d8.1] [d8.2]
+     [d9.1] [d9.2]
      [d10.1] [d10.2]
      [d11.1]
      [d12.1] [d12.2]
      [d13.1] [d13.2]
      [d14.1] [d14.2]
-     [d15.1][d15.2]
-     [d16.1] [d16.2] 
+     [d15.1] [d15.2]
+     [d16.1] [d16.2]
+     [d17.1]
+     [d18.1] [d18.2]
+     [d19.1]
+     [d20.1]
      ;
      ))
 
@@ -27,8 +31,8 @@
    :5  {:infile "inputs/5.input"  :fn {:1 d5.1/solve  :2 d5.2/solve}}
    :6  {:infile "inputs/6.input"  :fn {:1 d6.1/solve  :2 d6.2/solve}}
    :7  {:infile "inputs/7.input"  :fn {:1 d7.1/solve  :2 d7.2/solve}}
-   :8  {:infile "inputs/8.input"  :fn {:1 d8.1/solve}}
-   :9  {:infile "inputs/9.input"  :fn {:1 d9.1/solve}}
+   :8  {:infile "inputs/8.input"  :fn {:1 d8.1/solve  :2 d8.2/solve}}
+   :9  {:infile "inputs/9.input"  :fn {:1 d9.1/solve  :2 d9.2/solve}}
    :10 {:infile "inputs/10.input" :fn {:1 d10.1/solve :2 d10.2/solve}}
    :11 {:infile "inputs/11.input" :fn {:1 d11.1/solve}}
    :12 {:infile "inputs/12.input" :fn {:1 d12.1/solve :2 d12.2/solve}}
@@ -36,6 +40,10 @@
    :14 {:infile "inputs/14.input" :fn {:1 d14.1/solve :2 d14.2/solve}}
    :15 {:infile "inputs/15.input" :fn {:1 d15.1/solve :2 d15.2/solve}}
    :16 {:infile "inputs/16.input" :fn {:1 d16.1/solve :2 d16.2/solve}}
+   :17 {:infile "inputs/17.input" :fn {:1 d17.1/solve}}
+   :18 {:infile "inputs/18.input" :fn {:1 d18.1/solve :2 d18.2/solve}}
+   :19 {:infile "inputs/19.input" :fn {:1 d19.1/solve}}
+   :20 {:infile "inputs/20.input" :fn {:1 d20.1/solve}}
    ;
    })
 
