@@ -6,13 +6,13 @@
 (defn mixnprune [s f a] (let [n (f s a)] (mod (bit-xor n s) 16777216)))
 
 (defn- loopadoop [in res j]
-  (let [nums (loop [i 0 n (first in) last4r [(mod n 10)] last4d [] rmap {}]
+  (let [nums (loop [i 0 n (first in) l4r [(mod n 10)] l4d [] rmap {}]
                (if (= 2000 i)
                  rmap
                  (let [r (-> n (mixnprune * 64) (mixnprune m/floor-div 32) (mixnprune * 2048))
-                       <4l (= 4 (count last4d))
-                       l4d (conj (vec (if <4l (next last4d) last4d)) (- (mod r 10) (or (last last4r) 0)))
-                       l4r (conj (vec (if <4l (next last4r) last4r)) (mod r 10))
+                       append (conj (fn [l 0] (vec (if (= 4 (count l)) (next l) l))) (- (mod r 10) o))
+                       l4d (append l4d (last l4r))
+                       l4r (append l4r 0)
                        rmap (if (and (= 4 (count l4d)) (not (contains? rmap l4d)))
                               (assoc rmap l4d (mod r 10))
                               rmap)]
