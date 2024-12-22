@@ -30,7 +30,7 @@
   (let [wid 71
         tgt (dec (* wid wid))
         [bmap smap] (makemap in wid)]
-    (loop [stack #{[0 0 []]} smap smap res ##Inf]
+    (loop [stack [[0 0 []]] smap smap res ##Inf]
       (if (empty? stack)
         res
         (let [[i acc] (first stack)]

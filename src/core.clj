@@ -20,6 +20,8 @@
      [d18.1] [d18.2]
      [d19.1]
      [d20.1]
+     [d21.1]
+     [d22.1] [d22.2]
      ;
      ))
 
@@ -44,6 +46,8 @@
    :18 {:infile "inputs/18.input" :fn {:1 d18.1/solve :2 d18.2/solve}}
    :19 {:infile "inputs/19.input" :fn {:1 d19.1/solve}}
    :20 {:infile "inputs/20.input" :fn {:1 d20.1/solve}}
+   :21 {:infile "inputs/21.input" :fn {:1 d21.1/solve}}
+   :22 {:infile "inputs/22.input" :fn {:1 d22.1/solve :2 d22.2/solve}}
    ;
    })
 
