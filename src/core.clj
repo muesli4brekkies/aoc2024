@@ -1,58 +1,75 @@
 (ns core (:gen-class)
     (:require
-     [d1.1] [d1.2]
-     [d2.1] [d2.2]
-     [d3.1] [d3.2]
-     [d4.1] [d4.2]
-     [d5.1] [d5.2]
-     [d6.1] [d6.2]
-     [d7.1] [d7.2]
-     [d8.1] [d8.2]
-     [d9.1] [d9.2]
-     [d10.1] [d10.2]
-     [d11.1]
-     [d12.1] [d12.2]
-     [d13.1] [d13.2]
-     [d14.1] [d14.2]
-     [d15.1] [d15.2]
-     [d16.1] [d16.2]
-     [d17.1]
-     [d18.1] [d18.2]
-     [d19.1]
-     [d20.1]
-     [d21.1]
-     [d22.1] [d22.2]
-     ;
+     [y15.1.1] [y15.1.2]
+     [y15.2.1] [y15.2.2]
+     [y15.3.1] [y15.3.2]
+
+     [y15.5.1] [y15.5.2]
+
+     [y24.1.1] [y24.1.2]
+     [y24.2.1] [y24.2.2]
+     [y24.3.1] [y24.3.2]
+     [y24.4.1] [y24.4.2]
+     [y24.5.1] [y24.5.2]
+     [y24.6.1] [y24.6.2]
+     [y24.7.1] [y24.7.2]
+     [y24.8.1] [y24.8.2]
+     [y24.9.1] [y24.9.2]
+     [y24.10.1] [y24.10.2]
+     [y24.11.1];[y24.11.2]
+     [y24.12.1] [y24.12.2]
+     [y24.13.1] [y24.13.2]
+     [y24.14.1] [y24.14.2]
+     [y24.15.1] [y24.15.2]
+     [y24.16.1] [y24.16.2]
+     [y24.17.1] [y24.17.2]
+     [y24.18.1] [y24.18.2]
+     ;[y24.19.1] [y24.19.2]
+     [y24.20.1] ;[y24.20.2]
+     ;[y24.21.1] [y24.21.2]
+     [y24.22.1] [y24.22.2]
+     ;[y24.23.1] [y24.23.2]
+     [y24.24.1] ;[y24.24.2]
+     [y24.25.1] ;[y24.25.2]
      ))
 
 (def solvers
-  {:1  {:infile "inputs/1.input"  :fn {:1 d1.1/solve  :2 d1.2/solve}}
-   :2  {:infile "inputs/2.input"  :fn {:1 d2.1/solve  :2 d2.2/solve}}
-   :3  {:infile "inputs/3.input"  :fn {:1 d3.1/solve  :2 d3.2/solve}}
-   :4  {:infile "inputs/4.input"  :fn {:1 d4.1/solve  :2 d4.2/solve}}
-   :5  {:infile "inputs/5.input"  :fn {:1 d5.1/solve  :2 d5.2/solve}}
-   :6  {:infile "inputs/6.input"  :fn {:1 d6.1/solve  :2 d6.2/solve}}
-   :7  {:infile "inputs/7.input"  :fn {:1 d7.1/solve  :2 d7.2/solve}}
-   :8  {:infile "inputs/8.input"  :fn {:1 d8.1/solve  :2 d8.2/solve}}
-   :9  {:infile "inputs/9.input"  :fn {:1 d9.1/solve  :2 d9.2/solve}}
-   :10 {:infile "inputs/10.input" :fn {:1 d10.1/solve :2 d10.2/solve}}
-   :11 {:infile "inputs/11.input" :fn {:1 d11.1/solve}}
-   :12 {:infile "inputs/12.input" :fn {:1 d12.1/solve :2 d12.2/solve}}
-   :13 {:infile "inputs/13.input" :fn {:1 d13.1/solve :2 d13.2/solve}}
-   :14 {:infile "inputs/14.input" :fn {:1 d14.1/solve :2 d14.2/solve}}
-   :15 {:infile "inputs/15.input" :fn {:1 d15.1/solve :2 d15.2/solve}}
-   :16 {:infile "inputs/16.input" :fn {:1 d16.1/solve :2 d16.2/solve}}
-   :17 {:infile "inputs/17.input" :fn {:1 d17.1/solve}}
-   :18 {:infile "inputs/18.input" :fn {:1 d18.1/solve :2 d18.2/solve}}
-   :19 {:infile "inputs/19.input" :fn {:1 d19.1/solve}}
-   :20 {:infile "inputs/20.input" :fn {:1 d20.1/solve}}
-   :21 {:infile "inputs/21.input" :fn {:1 d21.1/solve}}
-   :22 {:infile "inputs/22.input" :fn {:1 d22.1/solve :2 d22.2/solve}}
-   ;
-   })
+  {:15 {:1  {:1 y15.1.1/solve  :2 y15.1.2/solve}
+        :2  {:1 y15.2.1/solve  :2 y15.2.2/solve}
+        :3  {:1 y15.3.1/solve  :2 y15.3.2/solve}
+
+        :5  {:1 y15.5.1/solve  :2 y15.5.2/solve
+        }
+        }
+
+   :24 {:1  {:1 y24.1.1/solve  :2 y24.1.2/solve}
+        :2  {:1 y24.2.1/solve  :2 y24.2.2/solve}
+        :3  {:1 y24.3.1/solve  :2 y24.3.2/solve}
+        :4  {:1 y24.4.1/solve  :2 y24.4.2/solve}
+        :5  {:1 y24.5.1/solve  :2 y24.5.2/solve}
+        :6  {:1 y24.6.1/solve  :2 y24.6.2/solve}
+        :7  {:1 y24.7.1/solve  :2 y24.7.2/solve}
+        :8  {:1 y24.8.1/solve  :2 y24.8.2/solve}
+        :9  {:1 y24.9.1/solve  :2 y24.9.2/solve}
+        :10 {:1 y24.10.1/solve :2 y24.10.2/solve}
+        :11 {:1 y24.11.1/solve}
+        :12 {:1 y24.12.1/solve :2 y24.12.2/solve}
+        :13 {:1 y24.13.1/solve :2 y24.13.2/solve}
+        :14 {:1 y24.14.1/solve :2 y24.14.2/solve}
+        :15 {:1 y24.15.1/solve :2 y24.15.2/solve}
+        :16 {:1 y24.16.1/solve :2 y24.16.2/solve}
+        :17 {:1 y24.17.1/solve}
+        :18 {:1 y24.18.1/solve :2 y24.18.2/solve}
+        ;:19 {:1 y24.19.1/solve}
+        :20 {:1 y24.20.1/solve}
+        ;:21 {:1 y24.21.1/solve}
+        :22 {:1 y24.22.1/solve :2 y24.22.2/solve}
+        ;:23 {:1 y24.23.1/solve}
+        :24 {:1 y24.24.1/solve}
+        :25 {:1 y24.25.1/solve}}})
 
 (defn -main
-  [darg parg & path?]
-  (if (or (nil? darg) (nil? parg)) (println "need args yo - day and part, and optional input path. eg: lein run 1 2 inputs/d1.input")
-      (let [[day pt] (map keyword [darg parg])]
-        (println ((-> solvers (get day) (get :fn) (get pt)) (slurp (or (first path?) (-> solvers (get day) (get :infile)))))))))
+  [yarg darg parg & path?]
+  (if (some #(nil? %) [yarg darg parg]) (println "need args yo - year, day and part, and optional input path. eg: lein run 24 1 2 inputs/d1.input")
+      (let [[year day pt] (map keyword [yarg darg parg])]
+        (println ((-> solvers (get year) (get day) (get pt)) (slurp (or (first path?) (str "src/y" yarg "/in/" darg ".in"))))))))
