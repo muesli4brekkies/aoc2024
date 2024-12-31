@@ -6,7 +6,9 @@
     (fn [[r l] n]
       (let [d {\< [-1 0] \> [1 0] \^ [0 -1] \v [0 1]}
             q (map (fn [a b] (+ a b)) l (d n))]
-        [(conj r q) q])) [[] [0 0]] in)))
+        [(conj r q) q]))
+    [[] [0 0]]
+    in)))
 
 (defn solve [in]
   (let [[i n]
