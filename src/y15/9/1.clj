@@ -14,4 +14,3 @@
      (fn [ac rte] (min ac (reduce (fn [ac [fr to]] (+ ac ((dirs fr) to))) 0 (partition 2 1 rte))))
      ##Inf
      (c/permutations cities))))
-
